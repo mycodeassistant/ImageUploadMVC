@@ -1,0 +1,63 @@
+﻿@model ManualCRUD.Models.Student
+@{
+    Layout= null;
+     //var StreamList = Enum.GetValues(typeof(Stream)).OfType<Stream>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList(); 
+
+    }
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+               
+                <form action="/Student/Create" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-3"><label>Name</label></div>
+                        <div class="col-lg-9"><input name="Name" type="text" placeholder="Enter Your Name" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"><label>Last Name</label></div>
+                        <div class="col-lg-9"><input name="LastName" type="text" placeholder="Enter Your Last Name" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"><label>Mobile</label></div>
+                        <div class="col-lg-9"><input name="Mobile" type="text" placeholder="Enter Your Mobile" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"><label>Email</label></div>
+                        <div class="col-lg-9"><input name="Email" type="text" placeholder="Enter Your Email" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"><label>Stream</label></div>
+                        <div class="col-lg-9">
+                            <select name="Stream">
+                                <option selected="selected">Please Select</option>
+                                <option>Science</option>
+                                <option>ARts</option>
+                                <option>Commerce</option>
+                                <option>Statistics</option>
+                                <option>Computer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"><label>Image</label></div>
+                        <div class="col-lg-9">
+                            @Html.HiddenFor(model => model.Image)
+                            @Html.HiddenFor(model => model.StudentId)
+                            <input name="ImagePath" accept="image/jpg, image/png, image/jpeg" type="file" placeholder="Enter Your Name" alt="Student Image" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" value="Submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
